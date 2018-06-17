@@ -23,12 +23,13 @@ namespace PROJEKT_CHAT1_CLIENT
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            mainForm = new Form1(buttonConnectClick, buttonSendClick);
+            mainForm = new Form1(buttonConnectClick, buttonSendClick, buttonDisconnectClick);
             Application.Run(mainForm);
         }
 
         static EventHandler buttonConnectClick = DoConnect;
         static EventHandler buttonSendClick = SendMessage;
+        static EventHandler buttonDisconnectClick = ExitConnect;
 
         static void DoConnect(object sender, EventArgs e)
         {
@@ -93,6 +94,22 @@ namespace PROJEKT_CHAT1_CLIENT
             byte[] sendBytes = Encoding.UTF8.GetBytes(message);
             socketClient.Send(sendBytes);
             mainForm.ClearMessageText();
+        }
+
+        static void ExitConnect(object sender, EventArgs e)
+        {
+            try
+            {
+                socketClient.Close();
+                mainForm.SetStatusLabel(false, null);
+                mainForm.SetSendEnabled(false);
+                mainForm.Println("Rozłączono z serwerem");
+            }
+            catch (Exception ex)
+            {
+                mainForm.Println($"Błąd: {ex.Message}");
+            }
+            
         }
     }
 }

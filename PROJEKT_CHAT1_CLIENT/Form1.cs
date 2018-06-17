@@ -12,11 +12,12 @@ namespace PROJEKT_CHAT1_CLIENT
 {
     public partial class Form1 : Form
     {
-        public Form1(EventHandler buttonConnectClick, EventHandler buttonSendClick)
+        public Form1(EventHandler buttonConnectClick, EventHandler buttonSendClick, EventHandler buttonDisconnectClick)
         {
             InitializeComponent();
             this.buttonConnect.Click += buttonConnectClick;
             this.buttonSend.Click += buttonSendClick;
+            this.buttonDisconnect.Click += buttonDisconnectClick;
         }
 
         private void Form1_Load(object sender, EventArgs e)
