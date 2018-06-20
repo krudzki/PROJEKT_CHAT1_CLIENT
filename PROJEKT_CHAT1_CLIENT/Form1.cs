@@ -105,5 +105,31 @@ namespace PROJEKT_CHAT1_CLIENT
                 this.buttonSend.Enabled = enabled;
             }
         }
+
+        public void SetConnectEnabled(bool enabled)
+        {
+            if (this.buttonConnect.InvokeRequired)
+            {
+                VoidBool sce = SetConnectEnabled;
+                this.textLog.Invoke(sce, enabled);
+            }
+            else
+            {
+                this.buttonConnect.Enabled = enabled;
+            }
+        }
+
+        public void SetDisconnectEnabled(bool enabled)
+        {
+            if (this.buttonDisconnect.InvokeRequired)
+            {
+                VoidBool sde = SetDisconnectEnabled;
+                this.textLog.Invoke(sde, enabled);
+            }
+            else
+            {
+                this.buttonDisconnect.Enabled = enabled;
+            }
+        }
     }
 }

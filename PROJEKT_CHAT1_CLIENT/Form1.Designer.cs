@@ -127,12 +127,14 @@
             this.textLog.Location = new System.Drawing.Point(118, 12);
             this.textLog.Multiline = true;
             this.textLog.Name = "textLog";
+            this.textLog.ReadOnly = true;
             this.textLog.Size = new System.Drawing.Size(577, 279);
             this.textLog.TabIndex = 7;
             // 
             // textMessage
             // 
             this.textMessage.Location = new System.Drawing.Point(13, 302);
+            this.textMessage.MaxLength = 1024;
             this.textMessage.Multiline = true;
             this.textMessage.Name = "textMessage";
             this.textMessage.Size = new System.Drawing.Size(540, 87);

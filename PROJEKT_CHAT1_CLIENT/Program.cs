@@ -48,6 +48,8 @@ namespace PROJEKT_CHAT1_CLIENT
                 socketClient.Connect(iPEndPoint);
                 mainForm.SetStatusLabel(true, iPEndPoint.ToString());
                 mainForm.SetSendEnabled(true);
+                mainForm.SetConnectEnabled(false);
+                mainForm.SetDisconnectEnabled(true);
                 mainForm.Println($"Połączono użytkownika: {nick} ({iPEndPoint}) z serwerem");
 
                 // Ciągłe odbieranie wiaodmości wysyłanych z serwera
@@ -69,7 +71,7 @@ namespace PROJEKT_CHAT1_CLIENT
                 try
                 {
                     // Otrzymuj wiaodmości wysłane
-                    byte[] buffor = new byte[1024 * 1024 * 2];
+                    byte[] buffor = new byte[1024];
                     int len = socketSend.Receive(buffor);
                     if (len == 0)
                     {
@@ -83,6 +85,7 @@ namespace PROJEKT_CHAT1_CLIENT
                 {
                     mainForm.SetStatusLabel(false);
                     mainForm.SetSendEnabled(false);
+                    mainForm.SetConnectEnabled(true);
                     mainForm.Println($"Serwer został rozłączony: {ex.Message}");
                     break;
                 }
@@ -109,6 +112,8 @@ namespace PROJEKT_CHAT1_CLIENT
                 socketClient.Close();
                 mainForm.SetStatusLabel(false, null);
                 mainForm.SetSendEnabled(false);
+                mainForm.SetConnectEnabled(true);
+                mainForm.SetDisconnectEnabled(false);
                 mainForm.Println("Rozłączono z serwerem");
             }
             catch (Exception ex)
