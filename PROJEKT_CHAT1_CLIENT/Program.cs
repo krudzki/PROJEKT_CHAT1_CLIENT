@@ -14,6 +14,7 @@ namespace PROJEKT_CHAT1_CLIENT
         static IPAddress addressIP = null;
         static IPEndPoint iPEndPoint = null;
         static string nick;
+        static Crypto crypto = new Crypto();
 
         static Form1 mainForm = null;
         
@@ -74,7 +75,8 @@ namespace PROJEKT_CHAT1_CLIENT
                     {
                         break;
                     }
-                    string str = Encoding.UTF8.GetString(buffor, 0, len);
+                    string encodedStr = Encoding.UTF8.GetString(buffor, 0, len);
+                    string str = crypto.Base64Decode(encodedStr);
                     mainForm.Println(str);
                 }
                 catch (Exception ex)
@@ -95,7 +97,7 @@ namespace PROJEKT_CHAT1_CLIENT
             {
                 return;
             }
-            byte[] sendBytes = Encoding.UTF8.GetBytes(message);
+            byte[] sendBytes = Encoding.UTF8.GetBytes(crypto.Base64Encode(message));
             socketClient.Send(sendBytes);
             mainForm.ClearMessageText();
         }
