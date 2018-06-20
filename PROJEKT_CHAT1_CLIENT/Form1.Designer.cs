@@ -42,6 +42,7 @@
             this.buttonDisconnect = new System.Windows.Forms.Button();
             this.labelNick = new System.Windows.Forms.Label();
             this.textNick = new System.Windows.Forms.TextBox();
+            this.labelInfoIP = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericServerPort)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,7 +106,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 259);
+            this.label3.Location = new System.Drawing.Point(15, 259);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 5;
@@ -114,10 +115,10 @@
             // labelStatus
             // 
             this.labelStatus.AutoSize = true;
-            this.labelStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelStatus.Location = new System.Drawing.Point(-3, 275);
+            this.labelStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelStatus.Location = new System.Drawing.Point(8, 272);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(124, 16);
+            this.labelStatus.Size = new System.Drawing.Size(104, 13);
             this.labelStatus.TabIndex = 6;
             this.labelStatus.Text = "NIEPOŁĄCZONY";
             // 
@@ -170,13 +171,25 @@
             this.textNick.Name = "textNick";
             this.textNick.Size = new System.Drawing.Size(100, 20);
             this.textNick.TabIndex = 12;
-            this.textNick.Text = "Jan Kowalski";
+            this.textNick.Text = "Anonim";
+            // 
+            // labelInfoIP
+            // 
+            this.labelInfoIP.AutoSize = true;
+            this.labelInfoIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelInfoIP.Location = new System.Drawing.Point(8, 285);
+            this.labelInfoIP.Name = "labelInfoIP";
+            this.labelInfoIP.Size = new System.Drawing.Size(44, 13);
+            this.labelInfoIP.TabIndex = 13;
+            this.labelInfoIP.Text = "IP: brak";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Moccasin;
             this.ClientSize = new System.Drawing.Size(707, 401);
+            this.Controls.Add(this.labelInfoIP);
             this.Controls.Add(this.textNick);
             this.Controls.Add(this.labelNick);
             this.Controls.Add(this.buttonDisconnect);
@@ -215,6 +228,7 @@
         private System.Windows.Forms.Button buttonDisconnect;
         private System.Windows.Forms.Label labelNick;
         private System.Windows.Forms.TextBox textNick;
+        private System.Windows.Forms.Label labelInfoIP;
     }
 }
 

@@ -79,12 +79,14 @@ namespace PROJEKT_CHAT1_CLIENT
                 if (isConnect)
                 {
                     this.labelStatus.ForeColor = Color.Green;
-                    this.labelStatus.Text = point;
+                    this.labelStatus.Text = "POŁACZONY";
+                    this.labelInfoIP.Text = point;
                 }
                 else
                 {
                     this.labelStatus.ForeColor = Color.Red;
-                    this.labelStatus.Text = "Niepołączony";
+                    this.labelStatus.Text = "NIEPOŁĄCZONY";
+                    this.labelInfoIP.Text = "BRAK";
                 }
             }
         }
