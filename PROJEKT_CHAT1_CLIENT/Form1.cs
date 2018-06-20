@@ -45,6 +45,11 @@ namespace PROJEKT_CHAT1_CLIENT
             this.textMessage.Clear();
         }
 
+        public string GetNickString()
+        {
+            return this.textNick.Text;
+        }
+
         delegate void VoidString(string str);
 
         public void Println(string str)

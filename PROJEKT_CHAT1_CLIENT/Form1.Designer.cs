@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.textServerIP = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,13 +40,15 @@
             this.textMessage = new System.Windows.Forms.TextBox();
             this.buttonSend = new System.Windows.Forms.Button();
             this.buttonDisconnect = new System.Windows.Forms.Button();
+            this.labelNick = new System.Windows.Forms.Label();
+            this.textNick = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericServerPort)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 0;
@@ -53,7 +56,7 @@
             // 
             // textServerIP
             // 
-            this.textServerIP.Location = new System.Drawing.Point(12, 29);
+            this.textServerIP.Location = new System.Drawing.Point(12, 70);
             this.textServerIP.Name = "textServerIP";
             this.textServerIP.Size = new System.Drawing.Size(100, 20);
             this.textServerIP.TabIndex = 1;
@@ -62,7 +65,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 76);
+            this.label2.Location = new System.Drawing.Point(12, 102);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 13);
             this.label2.TabIndex = 2;
@@ -70,7 +73,7 @@
             // 
             // numericServerPort
             // 
-            this.numericServerPort.Location = new System.Drawing.Point(12, 92);
+            this.numericServerPort.Location = new System.Drawing.Point(12, 118);
             this.numericServerPort.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -152,11 +155,30 @@
             this.buttonDisconnect.Text = "Rozłącz";
             this.buttonDisconnect.UseVisualStyleBackColor = true;
             // 
+            // labelNick
+            // 
+            this.labelNick.AutoSize = true;
+            this.labelNick.Location = new System.Drawing.Point(15, 12);
+            this.labelNick.Name = "labelNick";
+            this.labelNick.Size = new System.Drawing.Size(32, 13);
+            this.labelNick.TabIndex = 11;
+            this.labelNick.Text = "Nick:";
+            // 
+            // textNick
+            // 
+            this.textNick.Location = new System.Drawing.Point(12, 28);
+            this.textNick.Name = "textNick";
+            this.textNick.Size = new System.Drawing.Size(100, 20);
+            this.textNick.TabIndex = 12;
+            this.textNick.Text = "Jan Kowalski";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(707, 401);
+            this.Controls.Add(this.textNick);
+            this.Controls.Add(this.labelNick);
             this.Controls.Add(this.buttonDisconnect);
             this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.textMessage);
@@ -168,8 +190,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textServerIP);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Client CHAT";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericServerPort)).EndInit();
             this.ResumeLayout(false);
@@ -190,6 +213,8 @@
         private System.Windows.Forms.TextBox textMessage;
         private System.Windows.Forms.Button buttonSend;
         private System.Windows.Forms.Button buttonDisconnect;
+        private System.Windows.Forms.Label labelNick;
+        private System.Windows.Forms.TextBox textNick;
     }
 }
 

@@ -4,6 +4,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using PROJEKT_CHAT1_CLIENT.Cryptography;
 
 namespace PROJEKT_CHAT1_CLIENT
 {
@@ -12,6 +13,7 @@ namespace PROJEKT_CHAT1_CLIENT
         static Socket socketClient = null;
         static IPAddress addressIP = null;
         static IPEndPoint iPEndPoint = null;
+        static string nick;
 
         static Form1 mainForm = null;
         
@@ -33,17 +35,19 @@ namespace PROJEKT_CHAT1_CLIENT
 
         static void DoConnect(object sender, EventArgs e)
         {
+            nick = mainForm.GetNickString();
             addressIP = IPAddress.Parse(mainForm.GetIPString());
             iPEndPoint = new IPEndPoint(addressIP, mainForm.GetPortNumber());
 
             socketClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
             try
             {
                 // Nawiązanie połączenia
                 socketClient.Connect(iPEndPoint);
                 mainForm.SetStatusLabel(true, iPEndPoint.ToString());
                 mainForm.SetSendEnabled(true);
-                mainForm.Println($"Połączenie {iPEndPoint} z serwerem");
+                mainForm.Println($"Połączono użytkownika: {nick} ({iPEndPoint}) z serwerem");
 
                 // Ciągłe odbieranie wiaodmości wysyłanych z serwera
                 Thread thread = new Thread(Receive);
@@ -86,7 +90,7 @@ namespace PROJEKT_CHAT1_CLIENT
 
         static void SendMessage(object sender, EventArgs e)
         {
-            string message = mainForm.GetMessageString();
+            string message = ": " + nick + " >> " + mainForm.GetMessageString();
             if (message == "")
             {
                 return;
